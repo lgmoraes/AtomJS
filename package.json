@@ -1,0 +1,16 @@
+{
+  "name": "atomjs",
+  "version": "0.0.0",
+  "description": "",
+  "main": "atom.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgmoraes/AtomJS.git"
+  },
+  "author": "Louis Moraes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lgmoraes/AtomJS/issues"
+  },
+  "homepage": "https://github.com/lgmoraes/AtomJS#readme"
+}
