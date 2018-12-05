@@ -262,6 +262,13 @@ function whichClick(e) {
 		return "LEFT";
 }
 
+function wheelDirection(e) {
+	if (e.deltaY < 0)
+		return "UP";
+	else if (e.deltaY > 0)
+		return "DOWN";
+}
+
 function centerOnScreen(element) {
 	element.style.top = (getInnerHeight()/2) - (element.offsetHeight/2) + "px";
 	element.style.left = (getInnerWidth()/2) - (element.offsetWidth/2) + "px";
