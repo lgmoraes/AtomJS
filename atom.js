@@ -255,11 +255,11 @@ function mousePosition(e, element) {
 
 function whichClick(e) {
 	if (e.button === 1)
-		return "GAUCHE";
+		return "MIDDLE";
 	else if (e.button === 2)
-		return "DROIT";
+		return "RIGHT";
 	else (e.button === 3)
-		return "MILIEU";
+		return "LEFT";
 }
 
 function centerOnScreen(element) {
