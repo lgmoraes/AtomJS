@@ -493,6 +493,23 @@ function getFormatedTime(secondesTotal) {
 	};
 }
 
+function invertDateFormat(date, separator) {
+	if(date.length !== 10)
+		return "Unsupported format";
+	
+	if(isNaN(date.charAt(4))) {
+		if(separator === undefined)
+			separator = date.charAt(4);
+
+		return date.substring(8, 10) + separator + date.substring(5, 7) + separator + date.substring(0, 4);
+	}
+	
+	if(separator === undefined)
+		separator = date.charAt(2);
+
+	return date.substring(6, 10) + separator + date.substring(3, 5) + separator + date.substring(0, 2);
+}
+
 function zerofill(n, width) {
 	n = String(n);
 
