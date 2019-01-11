@@ -164,7 +164,7 @@ function is404(iframe) {
 }
 
 // Creer une copie réel d'un objet javascript
-function deepCopy(target, whiteList) {
+function copyData(target, whiteList) {
 	if(typeof whiteList !== 'undefined')
 		return (JSON.parse(JSON.stringify(target, whiteList)));
 	else
