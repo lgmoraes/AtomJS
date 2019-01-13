@@ -2,7 +2,7 @@
 
 ## Intro
 
-AtomJS is a very light library that brings to the developer the following advantages:
+Atom is a very light library that brings to the developer the following features:
 * Clarification of the code
 * Class manipulation
 * Manipulation of numbers
@@ -17,9 +17,18 @@ AtomJS is a very light library that brings to the developer the following advant
 
 ## Usage
 
-Simply import atom.js or atom.min.js in your javascript code
+Simply import atom.js or atom_object.js in your javascript code
+```js
+    /* Import functions directly in global scope */
+    <script src="node_modules/AtomJS/dist/atom.js"></script>
+    const navigator = getNavigator();
 
-    <script src="node_modules/AtomJS/atom.min.js"></script>
+    // OR
+
+    /* Import Atom object */
+    <script src="node_modules/AtomJS/dist/atom_object.js"></script>
+    const navigator = Atom.getNavigator();
+```
 
 ## Functions
 
@@ -37,8 +46,8 @@ Simply import atom.js or atom.min.js in your javascript code
 * `getInnerWidth()` - Get the inner width of the page
 * `getInnerHeight()` - Get the inner height of the page
 * `toXML(string)` - Convert String to XML
-* `getExtention(str)` - Returns the extension from a file name
-* `getNavigator()` - Returns the browser used by the user (FIREFOX, CHROME, IE, OPERA, SAFARI or UNKNOWN)
+* `getExtention(string)` - Returns the extension from a file name
+* `getNavigator()` - Returns the browser used by the user (FIREFOX, CHROME, EDGE, IE, OPERA, SAFARI or UNKNOWN)
 * `onLeave(func, popup, msg)` - Call func when the user leaves the page (does not work on the next / previous buttons) The messages do not necessarily appear in the popup according to browsers
 * `is404(iframe)` - Determines if an iframe is in error 404. Send the iframe element via frames or the name of the iframe (do not use the id). Does not work in IE (automatically returns false)
 * `copyData(target, whiteList)` - Create a real copy of a javascript object (whiteList is optional)
@@ -91,16 +100,16 @@ Simply import atom.js or atom.min.js in your javascript code
 
 ### String processing
 
-* `space2nbsp(str)` - Replaces the space characters by &nbsp;
-* `nl2br(str)` - Replaces nl characters by br
-* `br2nl(str)` - Replaces br characters by nl
-* `space2underscore(str)` - Replaces space characters by _
-* `underscore2space(str)` - Replaces _ characters by space
-* `escapeQuote(str, entitie)` - Escape the double quotation marks
-* `escapeSimpleQuote(str, entitie)` - Escape the single quotes
-* `escapeTags(str, entitie)` - Echape the tags
-* `htmlspecialchars(str)` - Convert special characters to HTML entities
-* `htmlspecialchars_decode(str)` - Convert HTML entities to special characters
+* `space2nbsp(string)` - Replaces the space characters by &nbsp;
+* `nl2br(string)` - Replaces nl characters by br
+* `br2nl(string)` - Replaces br characters by nl
+* `space2underscore(string)` - Replaces space characters by _
+* `underscore2space(string)` - Replaces _ characters by space
+* `escapeQuote(string, entitie)` - Escape the double quotation marks
+* `escapeSimpleQuote(string, entitie)` - Escape the single quotes
+* `escapeTags(string, entitie)` - Echape the tags
+* `htmlspecialchars(string)` - Convert special characters to HTML entities
+* `htmlspecialchars_decode(string)` - Convert HTML entities to special characters
 
 ### Input processing
 #### Ensures compatibility with different versions of keydown. Limitations: No CapsLock support for IE < 9, QWERTY transcript for IE < 9
