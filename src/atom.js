@@ -195,6 +195,8 @@ function getNavigator() {
 		return "IE";
 	else if(userAgent.indexOf("OPR") !== -1)
 		return "OPERA";
+	else if(userAgent.indexOf("Edge") !== -1)
+		return "EDGE";
 	else if(userAgent.indexOf("Chrome") !== -1)
 		return "CHROME";
 	else if(userAgent.indexOf("Safari") !== -1)
