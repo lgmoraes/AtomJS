@@ -669,106 +669,106 @@ function htmlspecialchars_decode(str) {
 
 /* GESTION DES TOUCHES */
 
-var keyTable = [];
-keyTable[0] = {key: "²"};	// Bug sous Firefox?
-keyTable[8] = {key: "Backspace"};
-keyTable[9] = {key: "Tab"};
-keyTable[13] = {key: "Enter"};
-keyTable[16] = {key: "Shift"};
-keyTable[17] = {key: "Ctrl"};
-keyTable[18] = {key: "Alt"};
-keyTable[19] = {key: "Pause"};
-keyTable[20] = {key: "CapsLock"};
-keyTable[27] = {key: "Escape"};
-keyTable[32] = {key: " "};
-keyTable[33] = {key: "PageUp"};
-keyTable[34] = {key: "PageDown"};
-keyTable[35] = {key: "End"};
-keyTable[36] = {key: "Home"};
-keyTable[37] = {key: "ArrowLeft"};
-keyTable[38] = {key: "ArrowUp"};
-keyTable[39] = {key: "ArrowRight"};
-keyTable[40] = {key: "ArrowDown"};
-keyTable[45] = {key: "Insert"};
-keyTable[46] = {key: "Delete"};
-keyTable[48] = {key: "à", shiftKey: "0", altKey: "@"};
-keyTable[49] = {key: "&", shiftKey: "1"};
-keyTable[50] = {key: "é", shiftKey: "2", altKey: "~"};
-keyTable[51] = {key: '"', shiftKey: "3", altKey: "#"};
-keyTable[52] = {key: "'", shiftKey: "4", altKey: "{"};
-keyTable[53] = {key: "(", shiftKey: "5", altKey: "["};
-keyTable[54] = {key: "-", shiftKey: "6", altKey: "|"};
-keyTable[55] = {key: "è", shiftKey: "7", altKey: "`"};
-keyTable[56] = {key: "_", shiftKey: "8", altKey: "\\"};
-keyTable[57] = {key: "ç", shiftKey: "9", altKey: "^"};
-keyTable[58] = {key: ":", shiftKey: "/"};
-keyTable[59] = {key: ";", shiftKey: "."};
-keyTable[60] = {key: "<", shiftKey: ">"};
-keyTable[61] = {key: "=", shiftKey: "+", altKey: "}"};
-keyTable[65] = {key: "a", shiftKey: "A"};
-keyTable[66] = {key: "b", shiftKey: "B"};
-keyTable[67] = {key: "c", shiftKey: "C"};
-keyTable[68] = {key: "d", shiftKey: "D"};
-keyTable[69] = {key: "e", shiftKey: "E", altKey: "€"};
-keyTable[70] = {key: "f", shiftKey: "F"};
-keyTable[71] = {key: "g", shiftKey: "G"};
-keyTable[72] = {key: "h", shiftKey: "H"};
-keyTable[73] = {key: "i", shiftKey: "I"};
-keyTable[74] = {key: "j", shiftKey: "J"};
-keyTable[75] = {key: "k", shiftKey: "K"};
-keyTable[76] = {key: "l", shiftKey: "L"};
-keyTable[77] = {key: "m", shiftKey: "M"};
-keyTable[78] = {key: "n", shiftKey: "N"};
-keyTable[79] = {key: "o", shiftKey: "O"};
-keyTable[80] = {key: "p", shiftKey: "P"};
-keyTable[81] = {key: "q", shiftKey: "Q"};
-keyTable[82] = {key: "r", shiftKey: "R"};
-keyTable[83] = {key: "s", shiftKey: "S"};
-keyTable[84] = {key: "t", shiftKey: "T"};
-keyTable[85] = {key: "u", shiftKey: "U"};
-keyTable[86] = {key: "v", shiftKey: "V"};
-keyTable[87] = {key: "w", shiftKey: "W"};
-keyTable[88] = {key: "x", shiftKey: "X"};
-keyTable[89] = {key: "y", shiftKey: "Y"};
-keyTable[90] = {key: "z", shiftKey: "Z"};
-keyTable[91] = {key: "OS"};
-keyTable[93] = {key: "ContextMenu"};
-keyTable[96] = {key: "0"};
-keyTable[97] = {key: "1"};
-keyTable[98] = {key: "2"};
-keyTable[99] = {key: "3"};
-keyTable[100] = {key: "4"};
-keyTable[101] = {key: "5"};
-keyTable[102] = {key: "6"};
-keyTable[103] = {key: "7"};
-keyTable[104] = {key: "8"};
-keyTable[105] = {key: "9"};
-keyTable[106] = {key: "*"};
-keyTable[107] = {key: "+"};
-keyTable[109] = {key: "-"};
-keyTable[110] = {key: "."};
-keyTable[112] = {key: "F1"};
-keyTable[113] = {key: "F2"};
-keyTable[114] = {key: "F3"};
-keyTable[115] = {key: "F4"};
-keyTable[116] = {key: "F5"};
-keyTable[117] = {key: "F6"};
-keyTable[118] = {key: "F7"};
-keyTable[119] = {key: "F8"};
-keyTable[120] = {key: "F9"};
-keyTable[121] = {key: "F10"};
-keyTable[122] = {key: "F11"};
-keyTable[123] = {key: "F12"};
-keyTable[144] = {key: "NumLock"};
-keyTable[145] = {key: "ScrollLock"};
-keyTable[160] = {key: "^", shiftKey: "¨"};
-keyTable[161] = {key: "!", shiftKey: "§"};
-keyTable[164] = {key: "$", shiftKey: "£", altKey: "¤"};
-keyTable[165] = {key: "ù", shiftKey: "%"};
-keyTable[169] = {key: ")", shiftKey: "°", altKey: "]"};
-keyTable[170] = {key: "*", shiftKey: "µ"};
-keyTable[188] = {key: ",", shiftKey: "?"};
-keyTable[222] = {key: "²"};
+var keys = [];
+keys[0] = {key: "²"};	// Bug sous Firefox?
+keys[8] = {key: "Backspace"};
+keys[9] = {key: "Tab"};
+keys[13] = {key: "Enter"};
+keys[16] = {key: "Shift"};
+keys[17] = {key: "Ctrl"};
+keys[18] = {key: "Alt"};
+keys[19] = {key: "Pause"};
+keys[20] = {key: "CapsLock"};
+keys[27] = {key: "Escape"};
+keys[32] = {key: " "};
+keys[33] = {key: "PageUp"};
+keys[34] = {key: "PageDown"};
+keys[35] = {key: "End"};
+keys[36] = {key: "Home"};
+keys[37] = {key: "ArrowLeft"};
+keys[38] = {key: "ArrowUp"};
+keys[39] = {key: "ArrowRight"};
+keys[40] = {key: "ArrowDown"};
+keys[45] = {key: "Insert"};
+keys[46] = {key: "Delete"};
+keys[48] = {key: "à", maj: "0", alt: "@"};
+keys[49] = {key: "&", maj: "1"};
+keys[50] = {key: "é", maj: "2", alt: "~"};
+keys[51] = {key: '"', maj: "3", alt: "#"};
+keys[52] = {key: "'", maj: "4", alt: "{"};
+keys[53] = {key: "(", maj: "5", alt: "["};
+keys[54] = {key: "-", maj: "6", alt: "|"};
+keys[55] = {key: "è", maj: "7", alt: "`"};
+keys[56] = {key: "_", maj: "8", alt: "\\"};
+keys[57] = {key: "ç", maj: "9", alt: "^"};
+keys[58] = {key: ":", maj: "/"};
+keys[59] = {key: ";", maj: "."};
+keys[60] = {key: "<", maj: ">"};
+keys[61] = {key: "=", maj: "+", alt: "}"};
+keys[65] = {key: "a", maj: "A"};
+keys[66] = {key: "b", maj: "B"};
+keys[67] = {key: "c", maj: "C"};
+keys[68] = {key: "d", maj: "D"};
+keys[69] = {key: "e", maj: "E", alt: "€"};
+keys[70] = {key: "f", maj: "F"};
+keys[71] = {key: "g", maj: "G"};
+keys[72] = {key: "h", maj: "H"};
+keys[73] = {key: "i", maj: "I"};
+keys[74] = {key: "j", maj: "J"};
+keys[75] = {key: "k", maj: "K"};
+keys[76] = {key: "l", maj: "L"};
+keys[77] = {key: "m", maj: "M"};
+keys[78] = {key: "n", maj: "N"};
+keys[79] = {key: "o", maj: "O"};
+keys[80] = {key: "p", maj: "P"};
+keys[81] = {key: "q", maj: "Q"};
+keys[82] = {key: "r", maj: "R"};
+keys[83] = {key: "s", maj: "S"};
+keys[84] = {key: "t", maj: "T"};
+keys[85] = {key: "u", maj: "U"};
+keys[86] = {key: "v", maj: "V"};
+keys[87] = {key: "w", maj: "W"};
+keys[88] = {key: "x", maj: "X"};
+keys[89] = {key: "y", maj: "Y"};
+keys[90] = {key: "z", maj: "Z"};
+keys[91] = {key: "OS"};
+keys[93] = {key: "ContextMenu"};
+keys[96] = {key: "0"};
+keys[97] = {key: "1"};
+keys[98] = {key: "2"};
+keys[99] = {key: "3"};
+keys[100] = {key: "4"};
+keys[101] = {key: "5"};
+keys[102] = {key: "6"};
+keys[103] = {key: "7"};
+keys[104] = {key: "8"};
+keys[105] = {key: "9"};
+keys[106] = {key: "*"};
+keys[107] = {key: "+"};
+keys[109] = {key: "-"};
+keys[110] = {key: "."};
+keys[112] = {key: "F1"};
+keys[113] = {key: "F2"};
+keys[114] = {key: "F3"};
+keys[115] = {key: "F4"};
+keys[116] = {key: "F5"};
+keys[117] = {key: "F6"};
+keys[118] = {key: "F7"};
+keys[119] = {key: "F8"};
+keys[120] = {key: "F9"};
+keys[121] = {key: "F10"};
+keys[122] = {key: "F11"};
+keys[123] = {key: "F12"};
+keys[144] = {key: "NumLock"};
+keys[145] = {key: "ScrollLock"};
+keys[160] = {key: "^", maj: "¨"};
+keys[161] = {key: "!", maj: "§"};
+keys[164] = {key: "$", maj: "£", alt: "¤"};
+keys[165] = {key: "ù", maj: "%"};
+keys[169] = {key: ")", maj: "°", alt: "]"};
+keys[170] = {key: "*", maj: "µ"};
+keys[188] = {key: ",", maj: "?"};
+keys[222] = {key: "²"};
 
 // Assure la compatibilité avec les differentes versions de keydown
 // Limitations : Pas de support CapsLock avec keyCode, Retranscription en AZERTY uniquement pour keyCode
@@ -825,14 +825,14 @@ function getKey(e) {
 
 	var keyCode = e.keyCode;
 
-	if(typeof keyTable[keyCode] == 'undefined')
+	if(typeof keys[keyCode] == 'undefined')
 		return false;
-	else if(e.shiftKey)
-		return keyTable[keyCode].shiftKey ? keyTable[keyCode].shiftKey : keyTable[keyCode].key;
+	else if(e.maj)
+		return keys[keyCode].maj ? keys[keyCode].maj : keys[keyCode].key;
 	else if(e.altKey && e.ctrlKey)
-		return keyTable[keyCode].altKey ? keyTable[keyCode].altKey : keyTable[keyCode].key;
+		return keys[keyCode].alt ? keys[keyCode].alt : keys[keyCode].key;
 	else
-		return keyTable[keyCode].key;
+		return keys[keyCode].key;
 }
 
 // Indique si la touche presse est une touche de déplacement
@@ -862,7 +862,7 @@ function isLetterPressed(e, includeAccents) {
 		var k = e.keyCode;
 
 		if(includeAccents)
-			return ((k >= 65 && k <= 90) || (!e.shiftKey && (k == 50 || k == 55 || k == 57 || k == 48 || k == 165) ));
+			return ((k >= 65 && k <= 90) || (!e.maj && (k == 50 || k == 55 || k == 57 || k == 48 || k == 165) ));
 		else
 			return (k >= 65 && k <= 90);
 	}
@@ -880,7 +880,7 @@ function isNumericPressed(e, caseSensitive) {
 			return /^[0-9&é"'\(\-è_çà]/.test(e.key);
 	else
 		if(caseSensitive)
-			return ((e.keyCode >= 48 && e.keyCode <= 57 && e.shiftKey) || (e.keyCode >= 96 && e.keyCode <= 105));
+			return ((e.keyCode >= 48 && e.keyCode <= 57 && e.maj) || (e.keyCode >= 96 && e.keyCode <= 105));
 		else
 			return ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105));
 }
