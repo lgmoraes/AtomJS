@@ -2,11 +2,12 @@ const path = require('path');
 
 module.exports = {
 	entry: {
-		index: './src/atom.js',
+		'atom': './src/atom.js',
+		'atom_object': './src/atom_object.js',
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'atom.js',
+		filename: ['name'].js,
 		libraryTarget: 'window'
 	},
 	module: {
