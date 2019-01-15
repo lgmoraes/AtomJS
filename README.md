@@ -1,4 +1,4 @@
-# AtomJS
+# Atom_webatlas
 
 ## Intro
 
@@ -13,7 +13,7 @@ Atom is a very light library that brings to the developer the following features
 
 ## Package managers
 
-    yarn add https://github.com/lgmoraes/AtomJS.git
+    yarn add https://github.com/lgmoraes/Atom_webatlas.git
 
 ## Usage
 

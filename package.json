@@ -1,16 +1,16 @@
 {
-  "name": "atomjs",
+  "name": "atom_webatlas",
   "version": "0.1.0",
   "description": "",
   "main": "atom.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lgmoraes/AtomJS.git"
+    "url": "git+https://github.com/lgmoraes/Atom_webatlas.git"
   },
   "author": "Louis Moraes",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lgmoraes/AtomJS/issues"
+    "url": "https://github.com/lgmoraes/Atom_webatlas/issues"
   },
   "scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
