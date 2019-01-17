@@ -1,5 +1,5 @@
 ﻿/*
- * AtomJS (C) 2018 Louis Moraes
+ * Atom_webatlas (C) 2018 Louis Moraes
  * 
  * MIT license
 */

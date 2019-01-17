@@ -60,7 +60,7 @@ Simply import atom.js or atom_object.js in your javascript code
 * `hide(element)` - Equivalent to element.style.display = "none";
 * `show(element)` - Equivalent to element.style.display = "inline-block";
 * `showBlock(element)` - Equivalent to element.style.display = "block";
-* `remove(element)` - Equivalent to document.createTextNode(text);
+* `remove(element)` - Equivalent to element.parentNode.removeChild(element);
 
 ### Positioning
 
@@ -70,7 +70,7 @@ Simply import atom.js or atom_object.js in your javascript code
 * `centerOnScreen(element)` - Center an element on screen
 * `centerOnElement(element, container)` - Center an element on container
 * `verticalAlign(element, align, container)` - Align vertically an element on container (align = TOP, CENTER or BOTTOM)
-* `horizontalAlign(element, align, container)` - Align horizontally an element on container (align = TOP, CENTER or BOTTOM)
+* `horizontalAlign(element, align, container)` - Align horizontally an element on container (align = LEFT, CENTER or RIGHT)
 * `fitScale(element, container, max)` - Rescale an element to fit container
 
 ### Animation
@@ -81,7 +81,7 @@ Simply import atom.js or atom_object.js in your javascript code
 * `restartAnimation(element)` - Restart the animation defined on the element
 
 ### Class processing
-#### Useful for IE <10 (classList not compatible before Internet Explorer 10)
+#### Useful for IE < 10 (classList not compatible before Internet Explorer 10)
 
 * `hasClass(class, element)` - Indicates whether the element has the class
 * `addClass(class, element)` - Add the class to the element
