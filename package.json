@@ -1,6 +1,6 @@
 {
   "name": "atom_webatlas",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "atom.js",
   "repository": {
@@ -13,10 +13,10 @@
     "url": "https://github.com/lgmoraes/Atom_webatlas/issues"
   },
   "scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "webpack --mode=production",
-		"dev": "webpack --watch --mode=development"
-	},
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production",
+    "dev": "webpack --watch --mode=development"
+  },
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.2.2",
