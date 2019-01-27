@@ -318,15 +318,16 @@ function remove(ele) {		// Supprime un element via removeChild() (remove() n'ét
 
 // Indique si la souris de l'utilisateur est au dessus d'un element
 function mouseover(e, element) {
+	var pos = getScreenPosition(element);
 	var resultat = true;
 	
-	if(e.clientX < getScreenPositionLeft(element)) {
+	if(e.clientX < pos.x) {
 		resultat = false;
-	} else if(e.clientX > getScreenPositionLeft(element) + element.offsetWidth) {
+	} else if(e.clientX > pos.x + element.offsetWidth) {
 		resultat = false;
-	} else if(e.clientY < getScreenPositionTop(element)) {
+	} else if(e.clientY < pos.y) {
 		resultat = false;
-	} else if(e.clientY > getScreenPositionTop(element) + element.offsetHeight) {
+	} else if(e.clientY > pos.y + element.offsetHeight) {
 		resultat = false;
 	}
 	
@@ -334,9 +335,11 @@ function mouseover(e, element) {
 }
 
 function mousePosition(e, element) {
+	var pos = getScreenPosition(element);
+	
 	return {
-		x: e.clientX - getScreenPositionLeft(element),
-		y: e.clientY - getScreenPositionTop(element)
+		x: e.clientX - pos.x,
+		y: e.clientY - pos.y
 	};
 }
 
