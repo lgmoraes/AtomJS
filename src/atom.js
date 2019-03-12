@@ -551,15 +551,26 @@ function checkRange(n, min, max) {
 	return n;
 }
 
-function toBin(x) {
+function toBin(n, zerofill, reverse) {
 	var res = []; // Contient le résultat
 
-	while (x){
-		res.push(x % 2);
-		x = Math.floor(x / 2);
+	if (zerofill === undefined)
+		zerofill = 0;
+	if (reverse === undefined)
+		reverse = false;
+
+	while (n) {
+		res.push(n % 2);
+		n = Math.floor(n / 2);
 	}
 
-	res.reverse(); // On remet dans le bon ordre
+	while (res.length < zerofill) {	// Ajuste la taille du tableau en ajoutant des zéros
+		res.push(0);
+	}
+
+	if (reverse)
+		res.reverse(); // On inverse l'ordre des bits
+
 	return res;
 }
 
