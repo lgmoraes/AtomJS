@@ -72,6 +72,7 @@ module.exports = {
 	getFormatedTime: getFormatedTime,
 	invertDateFormat: invertDateFormat,
 	zerofill: zerofill,
+	ucfirst: ucfirst,
 	space2nbsp: space2nbsp,
 	nl2br: nl2br,
 	br2nl: br2nl,
@@ -623,6 +624,10 @@ function zerofill(n, width) {
 
 
 // TRAITEMENT DE CHAINES
+
+function ucfirst(str) {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 function space2nbsp(str) {
 	return str.replace(/\s/g, '&nbsp;');
