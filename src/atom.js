@@ -480,51 +480,78 @@ function fadeOutIsRunning(element) {
 // MANIPULATION DE CLASS
 // Utile pour IE < 10 (classList n'étant pas compatible avant Internet Explorer 10)
 
-function hasClass(c, element) {
-	if(element.className == '')
-		return false;
-
-	var classes = element.className.split(' ');
-	return classes.indexOf(c) !== -1;
-}
-
-function addClass(c, element) {
-	if(hasClass(c, element))
-		return false;
-	
-	element.className += " " + c;
-	return true;
-}
-
-function removeClass(c, element) {
-	if(!hasClass(c, element))
-		return false;
-	
-	var classes = element.className.split(' ');
-	var newClass = "";
-	var indexToRemove = classes.indexOf(c);
-	
-	classes.splice(indexToRemove, 1);
-	
-	if(classes.length > 0)
-		newClass = classes[0];
-
-	for(var i=1; i < classes.length ;i++) {
-		newClass += " " + classes[i];
+if (Element.prototype.hasOwnProperty('classList')) {    // classList est supporté par le navigateur
+	function hasClass(c, element) {
+		return element.classList.contains(c);
 	}
-	
-	element.className = newClass;
 
-	return true;
-}
-
-function toggleClass(c, element) {	/* Ajoute la class si elle n'existe pas ou Supprime la class si elle existe */
-	if(!removeClass(c, element)) {
-		addClass(c, element);
+	function addClass(c, element) {
+		if(hasClass(c, element))
+			return false;
+		
+		element.classList.add(c);
 		return true;
 	}
 
-	return false;
+	function removeClass(c, element) {
+		if(!hasClass(c, element))
+			return false;
+		
+		element.classList.remove(c);
+		return true;
+	}
+
+	function toggleClass(c, element) {	/* Ajoute la class si elle n'existe pas ou Supprime la class si elle existe */
+		return element.classList.toggle(c);
+	}
+}
+else {  // classList n'est pas supporté par le navigateur
+	function hasClass(c, element) {
+		if(element.className == '')
+			return false;
+
+		var classes = element.className.split(' ');
+		return classes.indexOf(c) !== -1;
+	}
+
+	function addClass(c, element) {
+		if(hasClass(c, element))
+			return false;
+		
+		element.className += " " + c;
+		return true;
+	}
+
+	function removeClass(c, element) {
+		if(!hasClass(c, element))
+			return false;
+		
+		var classes = element.className.split(' ');
+		var newClass = "";
+		var indexToRemove = classes.indexOf(c);
+		
+		classes.splice(indexToRemove, 1);
+		
+		if(classes.length > 0)
+			newClass = classes[0];
+
+		for(var i=1; i < classes.length ;i++) {
+			newClass += " " + classes[i];
+		}
+		
+		element.className = newClass;
+
+		return true;
+	}
+
+	function toggleClass(c, element) {	/* Ajoute la class si elle n'existe pas ou Supprime la class si elle existe */
+		if(!removeClass(c, element)) {
+			addClass(c, element);
+			return true;
+		}
+
+		return false;
+	}
 }
 
 
