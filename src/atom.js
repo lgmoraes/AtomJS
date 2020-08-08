@@ -21,6 +21,7 @@ module.exports = {
 	getNavigator: getNavigator,
 	onLeave: onLeave,
 	is404: is404,
+	getUrlParams: getUrlParams,
 	assign: assign,
 	loadJSON: loadJSON,
 	copyData: copyData,
@@ -251,6 +252,23 @@ function is404(iframe) {
 	//	return true;
 
 	return false;
+}
+
+function getUrlParams() {
+	var obj = {};
+	var url = window.location.search;
+
+	if (url) {
+		params = url.substring(1).split("&");
+
+		for (var i = 0; i < params.length; i++) {
+			var p = params[i];
+			p = p.split("=");
+			obj[p[0]] = p[1];
+		}
+	}
+
+	return obj;
 }
 
 // fallback de Object.assign() pour IE11
