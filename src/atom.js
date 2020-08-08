@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Atom_webatlas (C) 2018 Louis Moraes
  * 
  * MIT license
@@ -21,6 +21,7 @@ module.exports = {
 	getNavigator: getNavigator,
 	onLeave: onLeave,
 	is404: is404,
+	assign: assign,
 	copyData: copyData,
 	getExecutionTime: getExecutionTime,
 	devlog: devlog,
@@ -249,6 +250,13 @@ function is404(iframe) {
 	//	return true;
 
 	return false;
+}
+
+// fallback de Object.assign() pour IE11
+function assign(target, source) {
+	for (var key in source) {
+		target[key] = source[key];
+	}
 }
 
 // Creer une copie réel d'un objet javascript
