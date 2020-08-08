@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Atom_webatlas (C) 2018 Louis Moraes
  * 
  * MIT license
@@ -22,6 +22,7 @@ module.exports = {
 	onLeave: onLeave,
 	is404: is404,
 	assign: assign,
+	loadJSON: loadJSON,
 	copyData: copyData,
 	getExecutionTime: getExecutionTime,
 	devlog: devlog,
@@ -257,6 +258,57 @@ function assign(target, source) {
 	for (var key in source) {
 		target[key] = source[key];
 	}
+}
+
+function loadJSON(url, args, func, func_error) {
+	var obj = {};
+	var xhr = new XMLHttpRequest();
+
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-Type", "application/json");
+	
+	if (typeof args === "object") {
+		var str = "";
+
+		for (var arg in args) {
+			str += arg + "=" + args[arg] + "&";
+		}
+		str = str.substring(0, str.length-1);
+		
+		xhr.send(str);
+	}
+	else
+		xhr.send();
+
+	xhr.onreadystatechange = function () {
+		var xhr = this;
+
+		if (xhr.readyState != xhr.DONE)
+			return false;
+
+		if (xhr.status == 200) {
+			try {
+				newObj = JSON.parse(xhr.response);
+				if (Object.assign)
+					Object.assign(obj, newObj)
+				else
+					assign(obj, newObj);
+			}
+			catch (error) {
+				func_error ? func_error(error) : console.warn(error);
+				return false;
+			}
+
+			if (func)
+				func();
+		}
+		else {
+			var error = "loadJSON Error " + xhr.status;
+			func_error ? func_error(error) : console.warn(error);
+		}
+	}
+
+	return obj;
 }
 
 // Creer une copie réel d'un objet javascript
