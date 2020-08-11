@@ -53,6 +53,7 @@ module.exports = {
 	toggleClass: toggleClass,
 	getRandomInt: getRandomInt,
 	getRandomFloat: getRandomFloat,
+	clamp, clamp,
 	checkRange: checkRange,
 	toBin: toBin,
 	getFormatedTime: getFormatedTime,
@@ -621,6 +622,15 @@ function getRandomFloat(n) {
 }
 
 //	Assure qu'une variable se trouve bien entre 2 valeurs
+function clamp(min, n, max) {
+	if(min != null && n < min)
+		n = min;
+	else if(max != null && n > max)
+		n = max;
+	
+	return n;
+}
+
 function checkRange(n, min, max) {
 	if(n < min)
 		n = min;
