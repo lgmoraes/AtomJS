@@ -424,12 +424,12 @@ function mousePosition(e, element) {
 }
 
 function whichClick(e) {
-	if (e.button === 1)
+	if (e.button === 0)
+		return "LEFT";
+	else if (e.button === 1)
 		return "MIDDLE";
 	else if (e.button === 2)
 		return "RIGHT";
-	else (e.button === 3)
-		return "LEFT";
 }
 
 function wheelDirection(e) {
