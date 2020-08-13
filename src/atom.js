@@ -430,6 +430,12 @@ function whichClick(e) {
 		return "MIDDLE";
 	else if (e.button === 2)
 		return "RIGHT";
+	else if (e.button === 3)
+		return "BACK";
+	else if (e.button === 4)
+		return "FORWARD";
+	else
+		return "OTHER";
 }
 
 function wheelDirection(e) {
