@@ -21,13 +21,17 @@ Simply import atom.js or atom_object.js in your javascript code
 ```js
     /* Import functions directly in global scope */
     <script src="node_modules/AtomJS/dist/atom.js"></script>
-    const navigator = getNavigator();
+    <script>
+        const navigator = getNavigator();
+    </script>
 
     // OR
 
     /* Import Atom object */
     <script src="node_modules/AtomJS/dist/atom_object.js"></script>
-    const navigator = Atom.getNavigator();
+    <script>
+        const navigator = Atom.getNavigator();
+    </script>
 ```
 
 ## Functions
@@ -50,6 +54,9 @@ Simply import atom.js or atom_object.js in your javascript code
 * `getNavigator()` - Returns the browser used by the user (FIREFOX, CHROME, EDGE, IE, OPERA, SAFARI or UNKNOWN)
 * `onLeave(func, popup, msg)` - Call func when the user leaves the page (does not work on the next / previous buttons) The messages do not necessarily appear in the popup according to browsers
 * `is404(iframe)` - Determines if an iframe is in error 404. Send the iframe element via frames or the name of the iframe (do not use the id). Does not work in IE (automatically returns false)
+* `getUrlParams()` - Returns an object with keys and values from the current url
+* `assign(target, source)` - Fallback to Object.assign() for IE11
+* `loadJSON(url, args, func, func_error)` - Returns an object from a json file, then call the callback function
 * `copyData(target, whiteList)` - Create a real copy of a javascript object (whiteList is optional)
 * `getExecutionTime(func)` - Returns the execution time of the specified function
 * `devlog(message, verbosite)` - Displays or not a message in the console based on the indicated verbosity. Useful for enabling / disabling developer messages in the console. The devmode variable must be defined
@@ -57,6 +64,7 @@ Simply import atom.js or atom_object.js in your javascript code
 ### Clarification of the code
 
 * `txt(text)` - Equivalent to document.createTextNode(text);
+* `divTxt(width, text, lineHeight)` - Returns an element corresponding to the specified arguments;
 * `hide(element)` - Equivalent to element.style.display = "none";
 * `show(element)` - Equivalent to element.style.display = "inline-block";
 * `showBlock(element)` - Equivalent to element.style.display = "block";
@@ -66,7 +74,7 @@ Simply import atom.js or atom_object.js in your javascript code
 
 * `mouseover(event, element)` - Is the position of the mouse on the element?
 * `mousePosition(event, element)` - Returns the position of the mouse relative to the element
-* `getScreenPosition(element)` - Return screen position of an element
+* `getScreenPosition(element)` - Returns screen position of an element
 * `centerOnScreen(element)` - Center an element on screen
 * `centerOnElement(element, container)` - Center an element on container
 * `verticalAlign(element, align, container)` - Align vertically an element on container (align = TOP, CENTER or BOTTOM)
@@ -92,14 +100,16 @@ Simply import atom.js or atom_object.js in your javascript code
 
 * `getRandomInt(min, max)` - Returns a random integer between a min value and a max value
 * `getRandomFloat(n)` - Returns a floating number between 0 and n (excluded)
-* `checkRange(n, min, max)` - Ensures that a variable is well between 2 values
+* `clamp(min, n, max)` - Ensures that a variable is well between 2 values
+* `checkRange(n, min, max)` - Deprecated. Use clamp() instead
 * `toBin(x)` - Convert an int to an array of 0 and 1
 * `getFormatedTime(secondsTotal)` - Get an object containing ms, s, m, and h
-* `zerofill(n, width)` - Add 0 to the left of the number until you reach the required number of characters
 * `invertDateFormat(date, separator)` - Invert date format (AAAA/MM/AA <=> DD/MM/AAAA)
+* `zerofill(n, width)` - Add 0 to the left of the number until you reach the required number of characters
 
 ### String processing
 
+* `ucfirst(string)` - Uppercase the first character
 * `space2nbsp(string)` - Replaces the space characters by &nbsp;
 * `nl2br(string)` - Replaces nl characters by br
 * `br2nl(string)` - Replaces br characters by nl
@@ -114,7 +124,7 @@ Simply import atom.js or atom_object.js in your javascript code
 ### Input processing
 #### Ensures compatibility with different versions of keydown. Limitations: No CapsLock support for IE < 9, QWERTY transcript for IE < 9
 
-* `whichClick(event)` - Returns LEFT, RIGHT or MIDDLE
+* `whichClick(event)` - Returns LEFT, RIGHT or MIDDLE (can also returns BACK, FORWARD and OTHER if supported)
 * `wheelDirection(event)` - Returns UP or DOWN
 * `getKey(event)` - Returns the key value of a keydown event and fixes the divergences between browsers (notably IE9-IE11)
 * `isArrowPressed(event)` - Indicates whether the pressed key is a move key
