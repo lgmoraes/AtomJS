@@ -250,7 +250,7 @@ function getUrlParams() {
 	var url = window.location.search;
 
 	if (url) {
-		params = url.substring(1).split("&");
+		var params = url.substring(1).split("&");
 
 		for (var i = 0; i < params.length; i++) {
 			var p = params[i];
