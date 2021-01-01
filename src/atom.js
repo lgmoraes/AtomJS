@@ -224,7 +224,7 @@ function onLeave(func, popup, msg) {
 
 // Détermine si une iframe est en erreur 404
 // Envoyez l'élément iframe via frames ou le name de l'iframe (ne pas utiliser l'id)
-//!\\ Ne fonctionne pas sous IE (renvoie automatiquement false)
+// Ne fonctionne pas sous IE (renvoie automatiquement false)
 function is404(iframe) {
 	if(getNavigator() == "IE")
 		return false;
